@@ -48,18 +48,30 @@ class WP_Maintianer_Plugin
 
         // plugins
         wp_update_plugins();
+        $plugins = get_plugins();
+        foreach ($plugins as $plugin_file => $plugin_data) {
+            $slug = explode('/', $plugin_file)[0];
+            $items['plugins'][$slug] = array(
+                'type' => 'plugin',
+                'slug' => $slug,
+                'name' => $plugin_data['Name'],
+                'title' => $plugin_data['Title'],
+                'description' => $plugin_data['Description'],
+                'author' => $plugin_data['Author'],
+                'pluginURI' => $plugin_data['PluginURI'],
+                'textdomain' => $plugin_data['TextDomain'],
+                'latest' => $plugin_data['Version'],
+                'current' => $plugin_data['Version'],
+                'wp' => $plugin_data['RequiresWP'],
+                'php' => $plugin_data['RequiresPHP'],
+                'lastchecked' => null,
+            );
+        }
         $transient = get_site_transient('update_plugins');
 
         foreach ($transient->response as $key => $value) {
-            $items['plugins'][] = array(
-                'type' => 'plugin',
-                'slug' => $value->slug,
-                'latest' => $value->new_version,
-                'current' => $transient->checked[$key],
-                'wp' => $value->requires,
-                'php' => $value->requires_php,
-                'lastchecked' => $transient->last_checked,
-            );
+            $items['plugins'][$value->slug]['latest'] = $value->new_version;
+            $items['plugins'][$value->slug]['lastchecked'] = $transient->last_checked;
         }
 
         return rest_ensure_response($items);
