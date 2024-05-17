@@ -1,0 +1,13 @@
+{
+    "name": "parallactic/wp-maintainer",
+    "version": "1.0.0",
+    "description": "Exposes WordPress update status via REST API.",
+    "type": "wordpress-muplugin",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Parallactic GmbH",
+            "email": "mail@parallactic.ch"
+        }
+    ]
+}
