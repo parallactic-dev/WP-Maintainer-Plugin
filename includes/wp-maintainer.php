@@ -29,7 +29,7 @@ class WP_Maintianer_Plugin
         $transient = get_site_transient('update_core');
 
         if (empty($transient->updates)) {
-            $items[] = array(
+            $items['core'] = array(
                 'type' => 'core',
                 'slug' => 'wordpress',
                 'latest' => $wp_version,
@@ -37,7 +37,7 @@ class WP_Maintianer_Plugin
                 'lastchecked' => $transient->last_checked,
             );
         } else {
-            $items[] = array(
+            $items['core'] = array(
                 'type' => 'core',
                 'slug' => 'wordpress',
                 'latest' => $transient->updates[0]->version,
@@ -51,7 +51,7 @@ class WP_Maintianer_Plugin
         $transient = get_site_transient('update_plugins');
 
         foreach ($transient->response as $key => $value) {
-            $items[] = array(
+            $items['plugins'][] = array(
                 'type' => 'plugin',
                 'slug' => $value->slug,
                 'latest' => $value->new_version,
