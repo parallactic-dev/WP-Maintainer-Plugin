@@ -1,6 +1,6 @@
 {
     "name": "parallactic/wp-maintainer",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Exposes WordPress update status via REST API.",
     "type": "wordpress-plugin",
     "license": "proprietary",
@@ -12,10 +12,5 @@
     ],
     "require": {
         "php": ">=7.2"
-    },
-    "autoload": {
-        "files": [
-            "status.php"
-        ]
     }
 }
