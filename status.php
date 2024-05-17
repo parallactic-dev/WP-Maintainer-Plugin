@@ -2,7 +2,7 @@
 /*
 Plugin Name: Parallactic WP Maintainer
 Description: Exposes WordPress update status via REST API.
-Version: 1.0
+Version: 1.0.1
 */
 
 // Register the REST endpoint
