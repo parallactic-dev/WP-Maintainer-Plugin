@@ -9,5 +9,13 @@
             "name": "Parallactic GmbH",
             "email": "mail@parallactic.ch"
         }
-    ]
+    ],
+    "require": {
+        "php": ">=7.2"
+    },
+    "autoload": {
+        "files": [
+            "status.php"
+        ]
+    }
 }
