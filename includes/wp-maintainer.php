@@ -13,12 +13,12 @@ class WP_Maintianer_Plugin
     {
         register_rest_route('wp/v2', '/status', array(
             'methods' => 'GET',
-            'callback' => 'update_checker_check_status',
+            'callback' => array($this, 'update_checker_check_status'),
         ));
     }
 
     // Callback function to check the WordPress update status
-    public function update_checker_check_status($request)
+    public function update_checker_check_status()
     {
         $items = array();
 
