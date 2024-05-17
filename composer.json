@@ -2,7 +2,7 @@
     "name": "parallactic/wp-maintainer",
     "version": "1.0.0",
     "description": "Exposes WordPress update status via REST API.",
-    "type": "wordpress-muplugin",
+    "type": "wordpress-plugin",
     "license": "proprietary",
     "authors": [
         {
