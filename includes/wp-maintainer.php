@@ -30,7 +30,7 @@ class WP_Maintianer_Plugin
 
         if (empty($transient->updates)) {
             $items[] = array(
-                'id' => 'core',
+                'type' => 'core',
                 'slug' => 'wordpress',
                 'latest' => $wp_version,
                 'current' => $wp_version,
@@ -38,7 +38,7 @@ class WP_Maintianer_Plugin
             );
         } else {
             $items[] = array(
-                'id' => 'wp-core',
+                'type' => 'core',
                 'slug' => 'wordpress',
                 'latest' => $transient->updates[0]->version,
                 'current' => $wp_version,
@@ -52,10 +52,12 @@ class WP_Maintianer_Plugin
 
         foreach ($transient->response as $key => $value) {
             $items[] = array(
-                'id' => $value->id,
+                'type' => 'plugin',
                 'slug' => $value->slug,
                 'latest' => $value->new_version,
                 'current' => $transient->checked[$key],
+                'wp' => $value->requires,
+                'php' => $value->requires_php,
                 'lastchecked' => $transient->last_checked,
             );
         }
