@@ -14,6 +14,7 @@ class WP_Maintianer_Plugin
         register_rest_route('wp/v2', '/status', array(
             'methods' => 'GET',
             'callback' => array($this, 'update_checker_check_status'),
+            'permission_callback' => '__return_true',
         ));
     }
 
