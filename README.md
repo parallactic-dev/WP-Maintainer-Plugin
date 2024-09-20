@@ -53,3 +53,14 @@ WP Maintainer is easy to install using Composer. Follow these steps to add it to
 ```
 composer require parallactic/wp-maintainer
 ```
+
+## Development
+
+Run `composer install` to get ypur dev environment ready.
+
+To release new versions create a git tag and push it to the remote. Packagist will updated the package automatically.
+
+```
+git tag 1.0.0
+git push origin 1.0.0
+```
